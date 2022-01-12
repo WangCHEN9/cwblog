@@ -67,11 +67,11 @@ const PostDetails = ({ post }) => {
         className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8"
         key={post.title}
       >
-        <div className="relative overflow-hidden pb-80 mb-6">
+        <div className="relative pb-80 mb-6">
           <Image
             src={post.featuredImage.url}
             alt={post.title}
-            className="w-full h-full object-center object-cover scale-auto shadow-lg rounded-t-lg lg:rounded-lg"
+            className="w-full object-center object-cover shadow-lg rounded-t-lg lg:rounded-lg"
             layout="fill"
           />
         </div>
