@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { getHeapCodeStatistics } from 'v8'
 import { PostCard, Category, PostWidget, Header } from '../components/'
 import Categories from '../components/Categories'
-import { getPost } from '../services'
+import { getPosts } from '../services'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 
@@ -32,7 +32,7 @@ export default function Home({ posts }) {
   )
 }
 export async function getStaticProps() {
-  const posts = (await getPost()) || [];
+  const posts = (await getPosts()) || [];
   return {
     props: { posts }
   }
