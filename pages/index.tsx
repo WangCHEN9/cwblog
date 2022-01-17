@@ -1,9 +1,8 @@
 import Head from 'next/head';
-import { getHeapCodeStatistics } from 'v8';
-import { PostCard, Category, PostWidget, Header } from '../components/';
+import { PostCard, PostWidget } from '../components/';
 import Categories from '../components/Categories';
 import { getPosts } from '../services';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { FeaturedPosts } from '../sections';
 
 export default function Home({ posts }) {
   return (
@@ -11,8 +10,9 @@ export default function Home({ posts }) {
       <div className="container mx-auto px-10 mb-8">
         <Head>
           <title>CHEN Wang - Blog</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/coding.png" />
         </Head>
+        <FeaturedPosts />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8 col-span-1">
             {posts.map((post) => (
