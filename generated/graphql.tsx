@@ -5624,22 +5624,17 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
-export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostsQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', createdAt: any, slug: string, title: string, excerpt: string, author?: { __typename?: 'Author', bio?: string | null | undefined, name: string, id: string, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, featuredImage: { __typename?: 'Asset', url: string }, categories: Array<{ __typename?: 'Category', name: string, slug: string }> } }> } };
-
 export type CategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', name: string, slug: string }> };
 
-export type PostDetailsQueryVariables = Exact<{
+export type CategoryPostQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type PostDetailsQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, excerpt: string, createdAt: any, slug: string, featuredImage: { __typename?: 'Asset', url: string }, author?: { __typename?: 'Author', name: string, bio?: string | null | undefined, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, content: { __typename?: 'PostContentRichText', raw: any }, categories: Array<{ __typename?: 'Category', name: string, slug: string }> } | null | undefined };
+export type CategoryPostQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', createdAt: any, slug: string, title: string, excerpt: string, author?: { __typename?: 'Author', bio?: string | null | undefined, name: string, id: string, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, featuredImage: { __typename?: 'Asset', url: string }, categories: Array<{ __typename?: 'Category', name: string, slug: string }> } }> } };
 
 export type PostsWithCategoriesQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -5649,6 +5644,25 @@ export type PostsWithCategoriesQueryVariables = Exact<{
 
 export type PostsWithCategoriesQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, createdAt: any, slug: string, featuredImage: { __typename?: 'Asset', url: string } }> };
 
+export type CommentsQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type CommentsQuery = { __typename?: 'Query', comments: Array<{ __typename?: 'Comment', name: string, createdAt: any, comment: string }> };
+
+export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PostsQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', createdAt: any, slug: string, title: string, excerpt: string, author?: { __typename?: 'Author', bio?: string | null | undefined, name: string, id: string, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, featuredImage: { __typename?: 'Asset', url: string }, categories: Array<{ __typename?: 'Category', name: string, slug: string }> } }> } };
+
+export type PostDetailsQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type PostDetailsQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, excerpt: string, createdAt: any, slug: string, featuredImage: { __typename?: 'Asset', url: string }, author?: { __typename?: 'Author', name: string, bio?: string | null | undefined, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, content: { __typename?: 'PostContentRichText', raw: any }, categories: Array<{ __typename?: 'Category', name: string, slug: string }> } | null | undefined };
+
 export type AdjacentPostsQueryVariables = Exact<{
   createdAt: Scalars['DateTime'];
   slug: Scalars['String'];
@@ -5657,24 +5671,10 @@ export type AdjacentPostsQueryVariables = Exact<{
 
 export type AdjacentPostsQuery = { __typename?: 'Query', next: Array<{ __typename?: 'Post', title: string, createdAt: any, slug: string, featuredImage: { __typename?: 'Asset', url: string } }>, previous: Array<{ __typename?: 'Post', title: string, createdAt: any, slug: string, featuredImage: { __typename?: 'Asset', url: string } }> };
 
-export type CategoryPostQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-export type CategoryPostQuery = { __typename?: 'Query', postsConnection: { __typename?: 'PostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', createdAt: any, slug: string, title: string, excerpt: string, author?: { __typename?: 'Author', bio?: string | null | undefined, name: string, id: string, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, featuredImage: { __typename?: 'Asset', url: string }, categories: Array<{ __typename?: 'Category', name: string, slug: string }> } }> } };
-
 export type FeaturedPostQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type FeaturedPostQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, createdAt: any, author?: { __typename?: 'Author', name: string, photo?: { __typename?: 'Asset', url: string } | null | undefined } | null | undefined, featuredImage: { __typename?: 'Asset', url: string } }> };
-
-export type CommentsQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-export type CommentsQuery = { __typename?: 'Query', comments: Array<{ __typename?: 'Comment', name: string, createdAt: any, comment: string }> };
 
 export type RecentPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5682,63 +5682,6 @@ export type RecentPostsQueryVariables = Exact<{ [key: string]: never; }>;
 export type RecentPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, createdAt: any, slug: string, featuredImage: { __typename?: 'Asset', url: string } }> };
 
 
-export const PostsDocument = gql`
-    query Posts {
-  postsConnection {
-    edges {
-      cursor
-      node {
-        author {
-          bio
-          name
-          id
-          photo {
-            url
-          }
-        }
-        createdAt
-        slug
-        title
-        excerpt
-        featuredImage {
-          url
-        }
-        categories {
-          name
-          slug
-        }
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __usePostsQuery__
- *
- * To run a query within a React component, call `usePostsQuery` and pass it any options that fit your needs.
- * When your component renders, `usePostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = usePostsQuery({
- *   variables: {
- *   },
- * });
- */
-export function usePostsQuery(baseOptions?: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
-      }
-export function usePostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostsQuery, PostsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
-        }
-export type PostsQueryHookResult = ReturnType<typeof usePostsQuery>;
-export type PostsLazyQueryHookResult = ReturnType<typeof usePostsLazyQuery>;
-export type PostsQueryResult = Apollo.QueryResult<PostsQuery, PostsQueryVariables>;
 export const CategoriesDocument = gql`
     query Categories {
   categories {
@@ -5774,162 +5717,6 @@ export function useCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type CategoriesQueryHookResult = ReturnType<typeof useCategoriesQuery>;
 export type CategoriesLazyQueryHookResult = ReturnType<typeof useCategoriesLazyQuery>;
 export type CategoriesQueryResult = Apollo.QueryResult<CategoriesQuery, CategoriesQueryVariables>;
-export const PostDetailsDocument = gql`
-    query PostDetails($slug: String!) {
-  post(where: {slug: $slug}) {
-    title
-    excerpt
-    featuredImage {
-      url
-    }
-    author {
-      name
-      bio
-      photo {
-        url
-      }
-    }
-    createdAt
-    slug
-    content {
-      raw
-    }
-    categories {
-      name
-      slug
-    }
-  }
-}
-    `;
-
-/**
- * __usePostDetailsQuery__
- *
- * To run a query within a React component, call `usePostDetailsQuery` and pass it any options that fit your needs.
- * When your component renders, `usePostDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = usePostDetailsQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function usePostDetailsQuery(baseOptions: Apollo.QueryHookOptions<PostDetailsQuery, PostDetailsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PostDetailsQuery, PostDetailsQueryVariables>(PostDetailsDocument, options);
-      }
-export function usePostDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostDetailsQuery, PostDetailsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PostDetailsQuery, PostDetailsQueryVariables>(PostDetailsDocument, options);
-        }
-export type PostDetailsQueryHookResult = ReturnType<typeof usePostDetailsQuery>;
-export type PostDetailsLazyQueryHookResult = ReturnType<typeof usePostDetailsLazyQuery>;
-export type PostDetailsQueryResult = Apollo.QueryResult<PostDetailsQuery, PostDetailsQueryVariables>;
-export const PostsWithCategoriesDocument = gql`
-    query PostsWithCategories($slug: String!, $categories: [String!]) {
-  posts(
-    where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
-    last: 3
-  ) {
-    title
-    featuredImage {
-      url
-    }
-    createdAt
-    slug
-  }
-}
-    `;
-
-/**
- * __usePostsWithCategoriesQuery__
- *
- * To run a query within a React component, call `usePostsWithCategoriesQuery` and pass it any options that fit your needs.
- * When your component renders, `usePostsWithCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = usePostsWithCategoriesQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *      categories: // value for 'categories'
- *   },
- * });
- */
-export function usePostsWithCategoriesQuery(baseOptions: Apollo.QueryHookOptions<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>(PostsWithCategoriesDocument, options);
-      }
-export function usePostsWithCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>(PostsWithCategoriesDocument, options);
-        }
-export type PostsWithCategoriesQueryHookResult = ReturnType<typeof usePostsWithCategoriesQuery>;
-export type PostsWithCategoriesLazyQueryHookResult = ReturnType<typeof usePostsWithCategoriesLazyQuery>;
-export type PostsWithCategoriesQueryResult = Apollo.QueryResult<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>;
-export const AdjacentPostsDocument = gql`
-    query AdjacentPosts($createdAt: DateTime!, $slug: String!) {
-  next: posts(
-    first: 1
-    orderBy: createdAt_ASC
-    where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
-  ) {
-    title
-    featuredImage {
-      url
-    }
-    createdAt
-    slug
-  }
-  previous: posts(
-    first: 1
-    orderBy: createdAt_DESC
-    where: {slug_not: $slug, AND: {createdAt_lte: $createdAt}}
-  ) {
-    title
-    featuredImage {
-      url
-    }
-    createdAt
-    slug
-  }
-}
-    `;
-
-/**
- * __useAdjacentPostsQuery__
- *
- * To run a query within a React component, call `useAdjacentPostsQuery` and pass it any options that fit your needs.
- * When your component renders, `useAdjacentPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAdjacentPostsQuery({
- *   variables: {
- *      createdAt: // value for 'createdAt'
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function useAdjacentPostsQuery(baseOptions: Apollo.QueryHookOptions<AdjacentPostsQuery, AdjacentPostsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AdjacentPostsQuery, AdjacentPostsQueryVariables>(AdjacentPostsDocument, options);
-      }
-export function useAdjacentPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AdjacentPostsQuery, AdjacentPostsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AdjacentPostsQuery, AdjacentPostsQueryVariables>(AdjacentPostsDocument, options);
-        }
-export type AdjacentPostsQueryHookResult = ReturnType<typeof useAdjacentPostsQuery>;
-export type AdjacentPostsLazyQueryHookResult = ReturnType<typeof useAdjacentPostsLazyQuery>;
-export type AdjacentPostsQueryResult = Apollo.QueryResult<AdjacentPostsQuery, AdjacentPostsQueryVariables>;
 export const CategoryPostDocument = gql`
     query CategoryPost($slug: String!) {
   postsConnection(where: {categories_some: {slug: $slug}}) {
@@ -5988,6 +5775,256 @@ export function useCategoryPostLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type CategoryPostQueryHookResult = ReturnType<typeof useCategoryPostQuery>;
 export type CategoryPostLazyQueryHookResult = ReturnType<typeof useCategoryPostLazyQuery>;
 export type CategoryPostQueryResult = Apollo.QueryResult<CategoryPostQuery, CategoryPostQueryVariables>;
+export const PostsWithCategoriesDocument = gql`
+    query PostsWithCategories($slug: String!, $categories: [String!]) {
+  posts(
+    where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
+    last: 3
+  ) {
+    title
+    featuredImage {
+      url
+    }
+    createdAt
+    slug
+  }
+}
+    `;
+
+/**
+ * __usePostsWithCategoriesQuery__
+ *
+ * To run a query within a React component, call `usePostsWithCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePostsWithCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePostsWithCategoriesQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *      categories: // value for 'categories'
+ *   },
+ * });
+ */
+export function usePostsWithCategoriesQuery(baseOptions: Apollo.QueryHookOptions<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>(PostsWithCategoriesDocument, options);
+      }
+export function usePostsWithCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>(PostsWithCategoriesDocument, options);
+        }
+export type PostsWithCategoriesQueryHookResult = ReturnType<typeof usePostsWithCategoriesQuery>;
+export type PostsWithCategoriesLazyQueryHookResult = ReturnType<typeof usePostsWithCategoriesLazyQuery>;
+export type PostsWithCategoriesQueryResult = Apollo.QueryResult<PostsWithCategoriesQuery, PostsWithCategoriesQueryVariables>;
+export const CommentsDocument = gql`
+    query Comments($slug: String!) {
+  comments(where: {post: {slug: $slug}}) {
+    name
+    createdAt
+    comment
+  }
+}
+    `;
+
+/**
+ * __useCommentsQuery__
+ *
+ * To run a query within a React component, call `useCommentsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCommentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCommentsQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useCommentsQuery(baseOptions: Apollo.QueryHookOptions<CommentsQuery, CommentsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<CommentsQuery, CommentsQueryVariables>(CommentsDocument, options);
+      }
+export function useCommentsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CommentsQuery, CommentsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<CommentsQuery, CommentsQueryVariables>(CommentsDocument, options);
+        }
+export type CommentsQueryHookResult = ReturnType<typeof useCommentsQuery>;
+export type CommentsLazyQueryHookResult = ReturnType<typeof useCommentsLazyQuery>;
+export type CommentsQueryResult = Apollo.QueryResult<CommentsQuery, CommentsQueryVariables>;
+export const PostsDocument = gql`
+    query Posts {
+  postsConnection {
+    edges {
+      cursor
+      node {
+        author {
+          bio
+          name
+          id
+          photo {
+            url
+          }
+        }
+        createdAt
+        slug
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __usePostsQuery__
+ *
+ * To run a query within a React component, call `usePostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePostsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function usePostsQuery(baseOptions?: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
+      }
+export function usePostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostsQuery, PostsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);
+        }
+export type PostsQueryHookResult = ReturnType<typeof usePostsQuery>;
+export type PostsLazyQueryHookResult = ReturnType<typeof usePostsLazyQuery>;
+export type PostsQueryResult = Apollo.QueryResult<PostsQuery, PostsQueryVariables>;
+export const PostDetailsDocument = gql`
+    query PostDetails($slug: String!) {
+  post(where: {slug: $slug}) {
+    title
+    excerpt
+    featuredImage {
+      url
+    }
+    author {
+      name
+      bio
+      photo {
+        url
+      }
+    }
+    createdAt
+    slug
+    content {
+      raw
+    }
+    categories {
+      name
+      slug
+    }
+  }
+}
+    `;
+
+/**
+ * __usePostDetailsQuery__
+ *
+ * To run a query within a React component, call `usePostDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePostDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePostDetailsQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function usePostDetailsQuery(baseOptions: Apollo.QueryHookOptions<PostDetailsQuery, PostDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PostDetailsQuery, PostDetailsQueryVariables>(PostDetailsDocument, options);
+      }
+export function usePostDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostDetailsQuery, PostDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PostDetailsQuery, PostDetailsQueryVariables>(PostDetailsDocument, options);
+        }
+export type PostDetailsQueryHookResult = ReturnType<typeof usePostDetailsQuery>;
+export type PostDetailsLazyQueryHookResult = ReturnType<typeof usePostDetailsLazyQuery>;
+export type PostDetailsQueryResult = Apollo.QueryResult<PostDetailsQuery, PostDetailsQueryVariables>;
+export const AdjacentPostsDocument = gql`
+    query AdjacentPosts($createdAt: DateTime!, $slug: String!) {
+  next: posts(
+    first: 1
+    orderBy: createdAt_ASC
+    where: {slug_not: $slug, AND: {createdAt_gte: $createdAt}}
+  ) {
+    title
+    featuredImage {
+      url
+    }
+    createdAt
+    slug
+  }
+  previous: posts(
+    first: 1
+    orderBy: createdAt_DESC
+    where: {slug_not: $slug, AND: {createdAt_lte: $createdAt}}
+  ) {
+    title
+    featuredImage {
+      url
+    }
+    createdAt
+    slug
+  }
+}
+    `;
+
+/**
+ * __useAdjacentPostsQuery__
+ *
+ * To run a query within a React component, call `useAdjacentPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAdjacentPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAdjacentPostsQuery({
+ *   variables: {
+ *      createdAt: // value for 'createdAt'
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useAdjacentPostsQuery(baseOptions: Apollo.QueryHookOptions<AdjacentPostsQuery, AdjacentPostsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AdjacentPostsQuery, AdjacentPostsQueryVariables>(AdjacentPostsDocument, options);
+      }
+export function useAdjacentPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AdjacentPostsQuery, AdjacentPostsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AdjacentPostsQuery, AdjacentPostsQueryVariables>(AdjacentPostsDocument, options);
+        }
+export type AdjacentPostsQueryHookResult = ReturnType<typeof useAdjacentPostsQuery>;
+export type AdjacentPostsLazyQueryHookResult = ReturnType<typeof useAdjacentPostsLazyQuery>;
+export type AdjacentPostsQueryResult = Apollo.QueryResult<AdjacentPostsQuery, AdjacentPostsQueryVariables>;
 export const FeaturedPostDocument = gql`
     query FeaturedPost {
   posts(where: {featuredPost: true}) {
@@ -6033,43 +6070,6 @@ export function useFeaturedPostLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type FeaturedPostQueryHookResult = ReturnType<typeof useFeaturedPostQuery>;
 export type FeaturedPostLazyQueryHookResult = ReturnType<typeof useFeaturedPostLazyQuery>;
 export type FeaturedPostQueryResult = Apollo.QueryResult<FeaturedPostQuery, FeaturedPostQueryVariables>;
-export const CommentsDocument = gql`
-    query Comments($slug: String!) {
-  comments(where: {post: {slug: $slug}}) {
-    name
-    createdAt
-    comment
-  }
-}
-    `;
-
-/**
- * __useCommentsQuery__
- *
- * To run a query within a React component, call `useCommentsQuery` and pass it any options that fit your needs.
- * When your component renders, `useCommentsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCommentsQuery({
- *   variables: {
- *      slug: // value for 'slug'
- *   },
- * });
- */
-export function useCommentsQuery(baseOptions: Apollo.QueryHookOptions<CommentsQuery, CommentsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<CommentsQuery, CommentsQueryVariables>(CommentsDocument, options);
-      }
-export function useCommentsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CommentsQuery, CommentsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<CommentsQuery, CommentsQueryVariables>(CommentsDocument, options);
-        }
-export type CommentsQueryHookResult = ReturnType<typeof useCommentsQuery>;
-export type CommentsLazyQueryHookResult = ReturnType<typeof useCommentsLazyQuery>;
-export type CommentsQueryResult = Apollo.QueryResult<CommentsQuery, CommentsQueryVariables>;
 export const RecentPostsDocument = gql`
     query RecentPosts {
   posts(orderBy: createdAt_ASC, last: 3) {

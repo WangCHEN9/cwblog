@@ -27,13 +27,6 @@ query Posts {
   }
 }
 
-query Categories {
-  categories {
-    name
-    slug
-  }
-}
-
 query PostDetails($slug: String!) {
   post(where: { slug: $slug }) {
     title
@@ -57,23 +50,6 @@ query PostDetails($slug: String!) {
       name
       slug
     }
-  }
-}
-
-query PostsWithCategories($slug: String!, $categories: [String!]) {
-  posts(
-    where: {
-      slug_not: $slug
-      AND: { categories_some: { slug_in: $categories } }
-    }
-    last: 3
-  ) {
-    title
-    featuredImage {
-      url
-    }
-    createdAt
-    slug
   }
 }
 
@@ -104,35 +80,6 @@ query AdjacentPosts($createdAt: DateTime!, $slug: String!) {
   }
 }
 
-query CategoryPost($slug: String!) {
-  postsConnection(where: { categories_some: { slug: $slug } }) {
-    edges {
-      cursor
-      node {
-        author {
-          bio
-          name
-          id
-          photo {
-            url
-          }
-        }
-        createdAt
-        slug
-        title
-        excerpt
-        featuredImage {
-          url
-        }
-        categories {
-          name
-          slug
-        }
-      }
-    }
-  }
-}
-
 query FeaturedPost {
   posts(where: { featuredPost: true }) {
     author {
@@ -147,14 +94,6 @@ query FeaturedPost {
     title
     slug
     createdAt
-  }
-}
-
-query Comments($slug: String!) {
-  comments(where: { post: { slug: $slug } }) {
-    name
-    createdAt
-    comment
   }
 }
 
