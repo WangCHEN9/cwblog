@@ -23,7 +23,7 @@ const Header = () => {
               (category): JSX.Element => (
                 <Link
                   key={category.slug}
-                  href={'/category/${category.slug}'}
+                  href={`/category/${category.slug}`}
                   passHref
                 >
                   <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer transition duration-200 hover:text-pink-600">
