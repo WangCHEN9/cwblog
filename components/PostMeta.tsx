@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
 import moment from 'moment';
+import { Post } from '../generated/graphql';
 
-const PostMeta = ({ post }) => {
+interface Props {
+  post: Post;
+}
+
+const PostMeta: FC<Props> = ({ post }) => {
   return (
     <div className="flex items-center mb-8 w-full">
       <div className="hidden md:flex justify-center lg:mb-0 lg:w-auto mr-8 items-center">
         <Image
-          alt={post.author.name}
+          alt={post.author!.name}
           height={30}
           width={30}
           className="align-middle rounded-full object-center object-cover overflow-hidden"
-          src={post.author.photo.url}
+          src={post.author!.photo!.url}
         />
         <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
-          {post.author.name}
+          {post.author!.name}
         </p>
       </div>
       <div className="font-medium text-gray-700">

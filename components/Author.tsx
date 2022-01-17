@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
+import { Author } from '../generated/graphql';
 
-const Author = ({ author }) => {
+interface Props {
+  author: Author;
+}
+
+const Author: FC<Props> = ({ author }) => {
   return (
     <div className="text-center mt-20 mb-8 p-10 relative rounded-lg bg-black bg-opacity-10">
       <div className="overflow-hidden">
@@ -10,7 +15,7 @@ const Author = ({ author }) => {
           unoptimized
           height={100}
           width={100}
-          src={author.photo.url}
+          src={author.photo!.url}
           className="align-middle object-center object-cover overflow-hidden rounded-full"
         />
       </div>

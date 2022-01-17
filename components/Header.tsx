@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Category, useCategoriesQuery } from '../generated/graphql';
+import { useCategoriesQuery } from '../generated/graphql';
 
 const Header = () => {
   const { loading, error, data } = useCategoriesQuery();
@@ -36,7 +36,7 @@ const Header = () => {
         </div>
       </div>
     );
-  }
+  } else return <p> error when rendering header component !</p>;
 };
 
 export default Header;

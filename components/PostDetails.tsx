@@ -1,14 +1,26 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { FC } from 'react';
 import moment from 'moment';
 import { PostMeta } from '../components';
+import { Post } from '../generated/graphql';
 
-const PostDetails = ({ post }) => {
-  const getContentFragment = (index, text, obj, type) => {
-    let modifiedText = text;
+interface Props {
+  post: Post;
+}
 
-    if (obj) {
-      if (obj.bold) {
+interface getContentFragmentProps {
+  index: string;
+  text: JSX.IntrinsicElements;
+  obj: { bold: boolean; italic: boolean; underline: boolean };
+  type: string;
+}
+
+const PostDetails: FC<Props> = ({ post }) => {
+  const getContentFragment = (Props: getContentFragmentProps) => {
+    let modifiedText = Props.text;
+
+    if (Props.obj) {
+      if (Props.obj.bold) {
         modifiedText = <b key={index}>{text}</b>;
       }
 

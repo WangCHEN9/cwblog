@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import moment from 'moment';
 import parse from 'html-react-parser';
 import { useCommentsQuery } from '../generated/graphql';
+interface Props {
+  slug: string;
+}
 
-const Comments = ({ slug }) => {
+const Comments: FC<Props> = ({ slug }) => {
   const { data, loading, error } = useCommentsQuery({
     variables: {
       slug: slug,
@@ -43,6 +46,7 @@ const Comments = ({ slug }) => {
         )}
       </>
     );
+  else return <>something wrong for comment component!!!</>;
 };
 
 export default Comments;

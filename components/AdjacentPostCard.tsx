@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
+import { Post } from '../generated/graphql';
+interface Props {
+  post: Post;
+  position: string;
+}
 
-const AdjacentPostCard = ({ post, position }) => (
+const AdjacentPostCard: FC<Props> = ({ post, position }) => (
   <>
     <div
       className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"

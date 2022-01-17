@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Post } from '../generated/graphql';
 
-const FeaturedPostCard = ({ post }) => (
+interface Props {
+  post: Post;
+}
+
+const FeaturedPostCard: FC<Props> = ({ post }) => (
   <div className="relative h-72">
     <div
       className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"
@@ -20,14 +25,14 @@ const FeaturedPostCard = ({ post }) => (
       <div className="flex items-center absolute bottom-5 w-full justify-center">
         <Image
           unoptimized
-          alt={post.author.name}
+          alt={post.author!.name}
           height="30px"
           width="30px"
           className="align-middle drop-shadow-lg rounded-full"
-          src={post.author.photo.url}
+          src={post.author!.photo!.url}
         />
         <p className="inline align-middle text-white text-shadow ml-2 font-medium">
-          {post.author.name}
+          {post.author!.name}
         </p>
       </div>
     </div>

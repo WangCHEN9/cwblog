@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Category, useCategoriesQuery } from '../generated/graphql';
+import { useCategoriesQuery } from '../generated/graphql';
 
 const Categories = () => {
   const { loading, error, data } = useCategoriesQuery();

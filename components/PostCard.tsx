@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PostMeta } from '../components';
+import { Post } from '../generated/graphql';
 
-const PostCard = ({ post }): JSX.Element => {
+interface Props {
+  post: Post;
+}
+
+const PostCard: FC<Props> = ({ post }) => {
   return (
     <div
       className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8"
