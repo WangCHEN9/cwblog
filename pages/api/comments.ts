@@ -1,13 +1,13 @@
-// any file inside the folder pages/api is mapped to /api/* and will be treated as an API endpoint instead of a page
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { GraphQLClient, gql } from 'graphql-request';
-import { resolveSoa } from 'dns';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 const graphcmsToken = process.env.GRAPHCMS_TOKEN;
 
-export default async function comments(req, res) {
+export default async function comments(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const graphQLClient = new GraphQLClient(graphqlAPI, {
     headers: {
       authorization: `Bearer ${graphcmsToken}`,
@@ -22,10 +22,12 @@ export default async function comments(req, res) {
       $slug: String!
     ) {
       createComment(
-        data: { name: $name }
-        email: $email
-        comment: $comment
-        post: { connect: { slug: $slug } }
+        data: {
+          name: $name
+          email: $email
+          comment: $comment
+          post: { connect: { slug: $slug } }
+        }
       ) {
         id
       }
@@ -33,7 +35,12 @@ export default async function comments(req, res) {
   `;
 
   try {
-    const result = await graphQLClient.request(query, req.body);
+    const result = await graphQLClient.request(query, {
+      name: req.body.name,
+      email: req.body.email,
+      comment: req.body.comment,
+      slug: req.body.slug,
+    });
     return res.status(200).send(result);
   } catch (error) {
     return res.status(500).send(error);
