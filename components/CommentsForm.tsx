@@ -6,7 +6,7 @@ interface Props {
 }
 
 const CommentsForm: FC<Props> = ({ slug }) => {
-  const [localStorage, setLocalStorage] = useState({});
+  const [localStorage, setLocalStorage] = useState({ name: '', email: '' });
   const [error, setError] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,7 +17,6 @@ const CommentsForm: FC<Props> = ({ slug }) => {
   });
 
   useEffect(() => {
-    setLocalStorage(window.localStorage);
     const initalFormData = {
       name: window.localStorage.getItem('name')!,
       email: window.localStorage.getItem('email')!,
@@ -59,11 +58,13 @@ const CommentsForm: FC<Props> = ({ slug }) => {
     };
 
     if (storeData) {
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
+      localStorage.name = name;
+      localStorage.email = email;
     } else {
-      localStorage.removeItem('name');
-      localStorage.removeItem('email');
+      setLocalStorage({
+        name: '',
+        email: '',
+      });
     }
 
     submitComment(commentObj).then((res) => {

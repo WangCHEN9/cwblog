@@ -10,7 +10,7 @@ interface Props {
   slug?: string;
 }
 
-const PostWidget: FC<Props> = ({ categories, slug }) => {
+const PostWidget = ({ categories, slug }: any) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {

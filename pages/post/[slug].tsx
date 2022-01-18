@@ -51,7 +51,7 @@ const PostDetail: FC<Props> = ({ post }) => {
 export default PostDetail;
 
 // Fetch data at build time
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const data = await getPostDetails(params.slug);
   return {
     props: {
@@ -65,7 +65,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const posts = await getPosts();
   return {
-    paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
+    paths: posts.map(({ node: { slug } }: any) => ({ params: { slug } })),
     fallback: true,
   };
 }
