@@ -14,7 +14,7 @@ const Header = () => {
           <div className="md:float-left block">
             <Link href="/" passHref>
               <span className="cursor-pointer font-bold text-3xl text-white">
-                CHEN Wang
+                Wang
               </span>
             </Link>
           </div>

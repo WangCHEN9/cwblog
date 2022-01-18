@@ -4,7 +4,7 @@ import Categories from '../components/Categories';
 import { getPosts } from '../services';
 import { FeaturedPosts } from '../sections';
 
-export default function Home({ posts }) {
+export default function Home({ posts }: any) {
   return (
     <div>
       <div className="container mx-auto px-10 mb-8">
@@ -15,7 +15,7 @@ export default function Home({ posts }) {
         <FeaturedPosts />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8 col-span-1">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <PostCard post={post.node} key={post.title} />
             ))}
           </div>

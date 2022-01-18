@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { Category, Post } from '../generated/graphql';
 
 interface Props {
-  categories: Category;
-  slug: string;
+  categories?: Category;
+  slug?: string;
 }
 
 const PostWidget: FC<Props> = ({ categories, slug }) => {
@@ -30,14 +30,16 @@ const PostWidget: FC<Props> = ({ categories, slug }) => {
       </h3>
       {relatedPosts.map((post: Post) => (
         <div key={post.title} className="flex item-center w-full mb-4">
-          <div className="w-16 flex-none">
-            <Image
-              alt={post.title}
-              height="60px"
-              width="60px"
-              className="align-middle rounded-4"
-              src={post.featuredImage.url}
-            />
+          <div className="w-16 flex-none align-left">
+            <Link href={`/post/${post.slug}`} key={post.title} passHref>
+              <Image
+                className="object-center object-cover align-middle rounded-lg cursor-pointer"
+                alt={post.title}
+                height={60}
+                width={60}
+                src={post.featuredImage.url}
+              />
+            </Link>
           </div>
 
           <div className="flex-grow ml-4">

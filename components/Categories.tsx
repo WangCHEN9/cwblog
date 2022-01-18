@@ -28,7 +28,7 @@ const Categories = () => {
         </div>
       </div>
     );
-  }
+  } else return <p>error when rendering component Categories !!</p>;
 };
 
 export default Categories;

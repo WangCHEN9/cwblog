@@ -6,13 +6,13 @@ interface Props {
 }
 
 const CommentsForm: FC<Props> = ({ slug }) => {
+  const [localStorage, setLocalStorage] = useState({});
   const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
-    name: null,
-    email: null,
-    comment: null,
+    name: '',
+    email: '',
+    comment: '',
     storeData: false,
   });
 
@@ -21,14 +21,15 @@ const CommentsForm: FC<Props> = ({ slug }) => {
     const initalFormData = {
       name: window.localStorage.getItem('name')!,
       email: window.localStorage.getItem('email')!,
+      comment: '',
       storeData:
-        window.localStorage.getItem('name') ||
-        window.localStorage.getItem('email'),
+        !!window.localStorage.getItem('name') ||
+        !!window.localStorage.getItem('email'),
     };
     setFormData(initalFormData);
   }, []);
 
-  const onInputChange = (e) => {
+  const onInputChange = (e: any) => {
     const { target } = e;
     if (target.type === 'checkbox') {
       setFormData((prevState) => ({
