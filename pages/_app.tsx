@@ -9,6 +9,9 @@ import {
   useQuery,
   gql,
 } from '@apollo/client';
+// import { config } from '@fortawesome/fontawesome-svg-core';
+// import '@fortawesome/fontawesome-svg-core/styles.css';
+// config.autoAddCss = false;
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT!;
 
