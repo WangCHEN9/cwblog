@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import moment from 'moment';
 import parse from 'html-react-parser';
 import { useCommentsQuery } from '../generated/graphql';
+import { Loader } from '../components';
 interface Props {
   slug: string;
 }
@@ -12,7 +13,7 @@ const Comments: FC<Props> = ({ slug }) => {
       slug: slug,
     },
   });
-  if (loading) return <p className="text-yellow">loading comments</p>;
+  if (loading) return <Loader />;
   if (error)
     return (
       <p className="text-pink-700 font-bold">error when loading comments</p>

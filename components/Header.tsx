@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { useCategoriesQuery } from '../generated/graphql';
+import { Loader } from '../components';
 
 const Header = () => {
   const { loading, error, data } = useCategoriesQuery();
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error when useCategoriesQuery</p>;
   if (data) {
     const categories = data.categories || [];
@@ -13,7 +14,7 @@ const Header = () => {
         <div className="border-b w-full inline-block board-blue-400 py-8">
           <div className="md:float-left block">
             <Link href="/" passHref>
-              <span className="cursor-pointer font-bold text-3xl text-white">
+              <span className="cursor-pointer font-bold text-3xl text-white transition duration-200 hover:text-pink-600">
                 Wang
               </span>
             </Link>

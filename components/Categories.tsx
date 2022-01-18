@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { useCategoriesQuery } from '../generated/graphql';
+import { Loader } from '../components';
 
 const Categories = () => {
   const { loading, error, data } = useCategoriesQuery();
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error when useCategoriesQuery</p>;
   if (data) {
     const categories = data.categories || [];
