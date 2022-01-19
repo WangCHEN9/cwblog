@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 function Intro() {
   return (
-    <div className="">
+    <div className="mt-6">
       <SocialMedia />
       <h3>
-        <p className="flex text-2xl text-white font-semibold justify-center py-2 font-sans">
+        <p className="flex text-2xl text-white font-semibold justify-center mb-6 font-sans">
           Hello, I am <span className="text-lg pr-2"></span>
           <span className="text-orange-400">Wang CHEN</span>
         </p>
@@ -24,10 +24,11 @@ function Intro() {
           1500,
         ]}
         loop={Infinity}
-        className="text-5xl font-light text-white flex justify-center py-2 font-mono "
+        className="text-5xl font-light text-white flex justify-center py-4 px-4 font-mono "
       />
-      <p className="text-lg text-white flex justify-center py-2">
-        Freelance developer with mechanical engineering background
+      <p className="text-lg text-white flex justify-center py-4 mx-4">
+        Freelance developer {'&'} Data scientist with mechanical engineering
+        background
       </p>
       <div className="mt-4  flex justify-center gap-10">
         <button
@@ -49,18 +50,17 @@ function Intro() {
 
 function Profile() {
   return (
-    <div className="grid grid-cols-3 py-6 bg-[#062d4e]">
-      <div className="col-span-2 ...">
+    <div className="grid grid-cols-3 grid-rows-1 mb-4 bg-[#24263b]">
+      <div className="col-span-3 md:col-span-2 pt-10 pb-4">
         <Intro />
       </div>
-      <div className="...">
+      <div className="box-content rounded-full border-b-2 p-4 drop-shadow-lg w-4/5 invisible md:visible mb-2 mt-8">
         <Image
-          unoptimized
           alt={'Hero Image'}
-          height={300}
-          width={300}
-          className="align-middle drop-shadow-lg rounded-lg object-cover relative"
-          src="wangchen.jpg"
+          height={400}
+          width={400}
+          className="align-middle drop-shadow-lg  rounded-full shadow-sm shadow-white object-cover relative"
+          src="/wangchen.jpg"
         />
       </div>
     </div>
