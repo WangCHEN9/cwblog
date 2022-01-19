@@ -11,7 +11,10 @@
 # next.js
 /.next/
 /out/
+
+# from CW
 .env
+/Materials
 
 # production
 /build
