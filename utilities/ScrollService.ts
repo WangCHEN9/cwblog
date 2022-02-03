@@ -9,7 +9,7 @@ export default class ScrollService {
   static currentScreenFadeIn = new Subject();
 
   constructor() {
-    window.addEventListener('scroll', this.checkCurrentScreenUnderViewport);
+    // window.addEventListener('scroll', this.checkCurrentScreenUnderViewport);
   }
 
   scrollToHireMe = () => {

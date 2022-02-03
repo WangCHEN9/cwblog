@@ -50,7 +50,7 @@ function Intro() {
 
 function Profile() {
   return (
-    <div className="grid grid-cols-3 grid-rows-1 mb-4 bg-[#24263b]">
+    <div className="grid grid-cols-3 grid-rows-1 pb-4 bg-[#24263b]">
       <div className="col-span-3 md:col-span-2 pt-10 pb-4">
         <Intro />
       </div>

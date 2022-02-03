@@ -10,7 +10,11 @@ module.exports = {
       serif: ['ui-serif', 'Georgia'],
       mono: ['ui-monospace', 'SFMono-Regular'],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        aboutme: "url('/me.jpg')",
+      },
+    },
   },
   plugins: [],
 };
