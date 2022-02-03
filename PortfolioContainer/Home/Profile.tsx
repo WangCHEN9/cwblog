@@ -50,18 +50,19 @@ function Intro() {
 
 function Profile() {
   return (
-    <div className="grid grid-cols-3 grid-rows-1 pb-4 bg-[#24263b]">
+    <div className="grid grid-cols-3 grid-rows-1 pb-6 bg-[#24263b]">
       <div className="col-span-3 md:col-span-2 pt-10 pb-4">
         <Intro />
       </div>
-      <div className="box-content rounded-full border-b-2 p-4 drop-shadow-lg w-4/5 invisible md:visible mb-2 mt-8">
-        <Image
-          alt={'Hero Image'}
-          height={400}
-          width={400}
-          className="align-middle drop-shadow-lg  rounded-full shadow-sm shadow-white object-cover relative"
-          src="/wangchen.jpg"
-        />
+      <div className="box-content rounded-full border-b-2 p-4 drop-shadow-lg w-3/5 invisible md:visible mb-2 mt-8">
+        <div className="">
+          <Image
+            alt={'Hero Image'}
+            className="drop-shadow-lg  rounded-full shadow-sm shadow-white object-cover relative"
+            src="/wangchen.jpg"
+            layout="fill"
+          />
+        </div>
       </div>
     </div>
   );
