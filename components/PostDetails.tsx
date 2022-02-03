@@ -2,6 +2,15 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 import { PostMeta } from '../components';
 import { Post } from '../generated/graphql';
+import {
+  CopyBlock,
+  github,
+  monokai,
+  nord,
+  googlecode,
+  monoBlue,
+  monokaiSublime,
+} from 'react-code-blocks';
 
 interface Props {
   post: Post;
@@ -33,6 +42,22 @@ const PostDetails: FC<Props> = ({ post }) => {
     }
 
     switch (Props.type) {
+      case 'heading-one':
+        return (
+          <h1 key={Props.index} className="text-3xl font-semibold mb-4">
+            {modifiedText.map((item: any, i: string) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h1>
+        );
+      case 'heading-two':
+        return (
+          <h2 key={Props.index} className="text-2xl font-semibold mb-4">
+            {modifiedText.map((item: any, i: string) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h2>
+        );
       case 'heading-three':
         return (
           <h3 key={Props.index} className="text-xl font-semibold mb-4">
@@ -57,6 +82,21 @@ const PostDetails: FC<Props> = ({ post }) => {
             ))}
           </h4>
         );
+      case 'code-block':
+        return (
+          <div key={Props.index} className="text-sm font-semibold mb-4">
+            {modifiedText.map((item: any, i: string) => (
+              <React.Fragment key={i}>
+                <CopyBlock
+                  theme={monokaiSublime}
+                  text={item}
+                  language={'python'}
+                  wrapLines
+                />
+              </React.Fragment>
+            ))}
+          </div>
+        );
       case 'image':
         return (
           <Image
@@ -65,7 +105,7 @@ const PostDetails: FC<Props> = ({ post }) => {
             height={Props.obj.height}
             width={Props.obj.width}
             src={Props.obj.src}
-            layout="fill"
+            layout="responsive"
           />
         );
       default:
