@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ScreenHeading } from '../../components';
 // import ScrollService from '../../utilities/ScrollService';
 import Animations from '../../utilities/Animations';
 import { subscribeOn } from 'rxjs';
 
-const AboutMe = (props) => {
+interface Props {
+  id: any;
+}
+
+const AboutMe: FC<Props> = (props) => {
   // let fadeInScreenHandler = (screen) => {
   //   if (screen.fadeScreen !== props.id) return;
   //   Animations.animations.fadeInScreen(props.id);
