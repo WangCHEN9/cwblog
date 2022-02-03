@@ -4,58 +4,58 @@ import ScrollService from '../utilities/ScrollService';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Headerdev = () => {
-  const [showHeaderOptions, setShowHeaderOptions] = useState(false);
-  const updateCurrentScreen = (currentScreen) => {
-    if (currentScreen || !currentScreen.screenInView) return;
-    let screenIndex = GET_SCREEN_INDEX(currentScreen.screenInView);
-    if (screenIndex < 0) return;
-  };
-  // let currentScreenSubscription =
-  //   ScrollService.currentScreenBoardCaster.subscribe(updateCurrentScreen);
-  const getHeaderOptions = () => {
-    return TOTAL_SCREENS.map((screen, i) => (
-      <div key={screen.screen_name} onClick={() => switchScreen(i, screen)}>
-        <span>{screen.screen_name}</span>
-      </div>
-    ));
-  };
+// const Headerdev = () => {
+//   const [showHeaderOptions, setShowHeaderOptions] = useState(false);
+//   const updateCurrentScreen = (currentScreen) => {
+//     if (currentScreen || !currentScreen.screenInView) return;
+//     let screenIndex = GET_SCREEN_INDEX(currentScreen.screenInView);
+//     if (screenIndex < 0) return;
+//   };
+//   // let currentScreenSubscription =
+//   //   ScrollService.currentScreenBoardCaster.subscribe(updateCurrentScreen);
+//   const getHeaderOptions = () => {
+//     return TOTAL_SCREENS.map((screen, i) => (
+//       <div key={screen.screen_name} onClick={() => switchScreen(i, screen)}>
+//         <span>{screen.screen_name}</span>
+//       </div>
+//     ));
+//   };
 
-  const switchScreen = (index, screen) => {
-    let screenComponent = document.getElementById(screen.screen_name);
-    if (!screenComponent) return;
-    screenComponent.scrollIntoView({ behavior: 'smooth' });
-    setShowHeaderOptions(false);
-  };
-  return (
-    <div className="bg-[#24263b]">
-      <div
-        className="flex justify-center h-36 text-white"
-        onClick={() => setShowHeaderOptions(!showHeaderOptions)}
-      >
-        <div className="flex items-center justify-between h-full w-9/12 text-white">
-          <div
-            className="header-hamburger"
-            onClick={() => setShowHeaderOptions(!showHeaderOptions)}
-          >
-            <FontAwesomeIcon className="header-hamburger-bars" icon={faBars} />
-          </div>
-          <div className="text-5xl text-white font-bold font-serif">
-            <span>Wang</span>
-          </div>
-          <div
-            className={
-              showHeaderOptions
-                ? 'flex items-center font-semibold cursor-pointer text-xl text-white'
-                : 'flex items-center font-semibold cursor-pointer'
-            }
-          >
-            {getHeaderOptions}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+//   const switchScreen = (index, screen) => {
+//     let screenComponent = document.getElementById(screen.screen_name);
+//     if (!screenComponent) return;
+//     screenComponent.scrollIntoView({ behavior: 'smooth' });
+//     setShowHeaderOptions(false);
+//   };
+//   return (
+//     <div className="bg-[#24263b]">
+//       <div
+//         className="flex justify-center h-36 text-white"
+//         onClick={() => setShowHeaderOptions(!showHeaderOptions)}
+//       >
+//         <div className="flex items-center justify-between h-full w-9/12 text-white">
+//           <div
+//             className="header-hamburger"
+//             onClick={() => setShowHeaderOptions(!showHeaderOptions)}
+//           >
+//             <FontAwesomeIcon className="header-hamburger-bars" icon={faBars} />
+//           </div>
+//           <div className="text-5xl text-white font-bold font-serif">
+//             <span>Wang</span>
+//           </div>
+//           <div
+//             className={
+//               showHeaderOptions
+//                 ? 'flex items-center font-semibold cursor-pointer text-xl text-white'
+//                 : 'flex items-center font-semibold cursor-pointer'
+//             }
+//           >
+//             {getHeaderOptions}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default Headerdev;
+// export default Headerdev;

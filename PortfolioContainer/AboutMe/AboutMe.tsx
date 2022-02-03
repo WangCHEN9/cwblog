@@ -24,12 +24,12 @@ const AboutMe: FC<Props> = (props) => {
     ],
     highlights: {
       bullets: [
-        'Innovation engineer',
-        'Data Scientist',
-        'Cat lover',
-        'Chinese, English, French',
+        '6 years as Innovation engineer',
+        '3 years as Data Scientist',
+        '3 languages : Chinese, English, French',
+        '2 Cats with me',
         'Full stack web development',
-        'Block Chain & Solidity',
+        'Blockchain technology lover',
       ],
       heading: 'Here are a few hightlights:',
     },
@@ -51,7 +51,7 @@ const AboutMe: FC<Props> = (props) => {
   };
   return (
     <div
-      className="flex flex-col justify-center items-center screen-container bg-[#f8f7f1]"
+      className="flex flex-col justify-center items-center  bg-[#f8f7f1]"
       id={props.id || ''}
     >
       <div className="max-w-screen-lg w-8/12">

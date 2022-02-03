@@ -23,7 +23,7 @@ export default class ScrollService {
     homeScreen.scrollIntoView({ behavior: 'smooth' });
   };
 
-  isElementInview = (elem, type) => {
+  isElementInview = (elem: any, type: any) => {
     let rec = elem.getBoundingClientRect();
     let elementTop = rec.top;
     let elementBottom = rec.Bottom;
@@ -42,30 +42,30 @@ export default class ScrollService {
     }
   };
 
-  checkCurrentScreenUnderViewport = (event) => {
-    if (!event || object.keys(event).length < 1) return;
-    for (let screen of TOTAL_SCREENS) {
-      let screenFromDOM = document.getElementById(screen.screen_name);
-      if (!screenFromDOM) continue;
+  // checkCurrentScreenUnderViewport = (event: any) => {
+  //   if (!event || object.keys(event).length < 1) return;
+  //   for (let screen of TOTAL_SCREENS) {
+  //     let screenFromDOM = document.getElementById(screen.screen_name);
+  //     if (!screenFromDOM) continue;
 
-      let fullVisible = this.isElementInview(screenFromDOM, 'complete');
-      let partiallyVisible = this.isElementInview(screenFromDOM, 'partial');
+  //     let fullVisible = this.isElementInview(screenFromDOM, 'complete');
+  //     let partiallyVisible = this.isElementInview(screenFromDOM, 'partial');
 
-      if (fullVisible || partiallyVisible) {
-        if (partiallyVisible && !screen.alreadyRendered) {
-          ScrollService.currentScreenFadeIn.next({
-            faceInScreen: screen.screen_name,
-          });
-          screen['alreadyRendered'] = true;
-          break;
-        }
-        if (fullVisible) {
-          ScrollService.currentScreenBoardCaster.next({
-            screenInView: screen.screen_name,
-          });
-          break;
-        }
-      }
-    }
-  };
+  //     if (fullVisible || partiallyVisible) {
+  //       if (partiallyVisible && !screen.alreadyRendered) {
+  //         ScrollService.currentScreenFadeIn.next({
+  //           faceInScreen: screen.screen_name,
+  //         });
+  //         screen['alreadyRendered'] = true;
+  //         break;
+  //       }
+  //       if (fullVisible) {
+  //         ScrollService.currentScreenBoardCaster.next({
+  //           screenInView: screen.screen_name,
+  //         });
+  //         break;
+  //       }
+  //     }
+  //   }
+  // };
 }
