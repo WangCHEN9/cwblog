@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { AboutMe, Home } from '../PortfolioContainer';
+import { PortfolioContainer } from '../PortfolioContainer';
 
 export default function home() {
   return (
@@ -9,9 +9,7 @@ export default function home() {
         <title>CHEN Wang</title>
         <link rel="icon" href="/coding.png" />
       </Head>
-
-      <Home />
-      <AboutMe />
+      <PortfolioContainer />
     </div>
   );
 }
