@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 function Intro() {
   return (
-    <div className="mt-6">
+    <div className="flex flex-col mt-6">
       <SocialMedia />
       <h3>
         <p className="flex text-2xl text-white font-semibold justify-center mb-6 font-sans">
@@ -50,7 +50,7 @@ function Intro() {
 
 function Profile() {
   return (
-    <div className="grid grid-cols-3 grid-rows-1 pb-6 bg-[#24263b]">
+    <div className="grid grid-cols-3 grid-rows-1 pb-6 ">
       <div className="col-span-3 md:col-span-2 pt-10 pb-4">
         <Intro />
       </div>

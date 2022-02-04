@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         aboutme: "url('/me.jpg')",
+        contactme: "url('/mailz.jpeg')",
       },
     },
   },

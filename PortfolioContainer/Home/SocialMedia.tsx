@@ -9,7 +9,7 @@ library.add(fab);
 
 const SocialMedia = () => {
   return (
-    <div className="flex justify-center pt-8 mb-2">
+    <div className="flex justify-center pt-2 mb-2">
       <div className="grid grid-cols-3 grid-rows-1 gap-1 w-20 ">
         <Link href="https://www.linkedin.com/in/wangchen9/" passHref>
           <div>

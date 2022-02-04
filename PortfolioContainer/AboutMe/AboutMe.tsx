@@ -50,11 +50,8 @@ const AboutMe: FC<Props> = (props) => {
     ));
   };
   return (
-    <div>
-      <div
-        className="flex justify-center items-center bg-[#f8f7f1]"
-        id={props.id || ''}
-      >
+    <div className="pb-20 bg-[#f8f7f1]">
+      <div className="flex justify-center items-center " id={props.id || ''}>
         <div className="max-w-screen-lg w-8/12">
           <ScreenHeading title={'About Me'} subHeading={'Why Choose Me'} />
           <div className="flex w-full shadow-2xl shadow-[#1f2235]">
