@@ -12,22 +12,22 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 // @ts-ignore
 library.add(fab);
 
-const ContactMe = (props) => {
+const ContactMe = (props: any) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [banner, setBanner] = useState('');
   const [bool, setBool] = useState(false);
-  const handleName = (e) => {
+  const handleName = (e: any) => {
     setName(e.target.value);
   };
-  const handleEmail = (e) => {
+  const handleEmail = (e: any) => {
     setEmail(e.target.value);
   };
-  const handleMessage = (e) => {
+  const handleMessage = (e: any) => {
     setMessage(e.target.value);
   };
-  console.log(name);
+  // console.log(name);
   return (
     <div className="h-fit" id={props.id}>
       <ScreenHeading
@@ -65,7 +65,7 @@ const ContactMe = (props) => {
           <div className="flex flex-col w-6/12 justify-end h-full rounded-xl bg-gray-200 mr-5 mb-5">
             <form className="flex flex-col mx-5">
               <p className="bg-orange-400 font-serif font-semibold mb-6 justify-center">
-                {banner}
+                {/* {banner} */}
               </p>
               <label
                 htmlFor="name"
