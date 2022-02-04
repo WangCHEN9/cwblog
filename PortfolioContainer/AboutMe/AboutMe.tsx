@@ -50,47 +50,49 @@ const AboutMe: FC<Props> = (props) => {
     ));
   };
   return (
-    <div className="pb-10  bg-[#f8f7f1]">
-      <div
-        className="flex justify-center items-center mb-10"
-        id={props.id || ''}
-      >
-        <div className="max-w-screen-lg w-8/12">
-          <ScreenHeading title={'About Me'} subHeading={'Why Choose Me'} />
-          <div className="flex w-full shadow-2xl shadow-[#1f2235]">
-            <div className="w-6/12 bg-aboutme bg-cover bg-center"></div>
-            <div className="w-6/12 text-justify p-7">
-              <span className="text-sm">{renderDescription()}</span>
-              <div className="mt-5">
-                <div>
-                  <span className="font-semibold">
-                    {SCREEN_CONSTSANTS.highlights.heading}
-                  </span>
+    <>
+      <div className="pb-5  bg-[#f8f7f1]">
+        <div
+          className="flex justify-center items-center mb-10"
+          id={props.id || ''}
+        >
+          <div className="max-w-screen-lg w-8/12">
+            <ScreenHeading title={'About Me'} subHeading={'Why Choose Me'} />
+            <div className="flex w-full shadow-2xl shadow-[#1f2235]">
+              <div className="w-6/12 bg-aboutme bg-cover bg-center"></div>
+              <div className="w-6/12 text-justify p-7">
+                <span className="text-sm">{renderDescription()}</span>
+                <div className="mt-5">
+                  <div>
+                    <span className="font-semibold">
+                      {SCREEN_CONSTSANTS.highlights.heading}
+                    </span>
+                  </div>
+                  <div className="">{renderHighlight()}</div>
                 </div>
-                <div className="">{renderHighlight()}</div>
-              </div>
-              <div className="mt-4  flex justify-center gap-10">
-                {/* <button
+                <div className="mt-4  flex justify-center gap-10">
+                  {/* <button
                   type="button"
                   className="inline-block items-center transition duration-300 ease border-2 border-sky-600 hover:border-orange-400 hover:text-orange-400 text-base font-medium rounded-full text-sky-600 px-8 py-3 cursor-pointer"
                 >
                   Hire Me
                 </button> */}
-                <ScrollButton />
-                <button
-                  type="button"
-                  className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
-                >
-                  <a href="/Wang_CHEN-CV-2022-01.pdf" download>
-                    Get Resume
-                  </a>
-                </button>
+                  <ScrollButton />
+                  <button
+                    type="button"
+                    className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
+                  >
+                    <a href="/Wang_CHEN-CV-2022-01.pdf" download>
+                      Get Resume
+                    </a>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
