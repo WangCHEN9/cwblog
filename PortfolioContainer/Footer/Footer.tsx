@@ -1,16 +1,12 @@
 import React from 'react';
-import Image from 'next/image';
+import { SocialMedia } from '..';
 
 const Footer = () => {
   return (
-    <div className="h-fit w-fit">
-      <Image
-        alt="footer image"
-        src="/shape-bg.png"
-        height={126}
-        width={1920}
-        className="object-contain"
-      />
+    <div className="flex flex-col items-center w-full my-4">
+      <p className="text-black tracking-wider">
+        All Rights Reserved ©️ Wang CHEN 2022
+      </p>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const Header = () => {
         <div className="border-b w-full inline-block board-blue-400 py-8">
           <div className="md:float-left block">
             <Link href="/" passHref>
-              <span className="cursor-pointer font-bold text-3xl text-white transition duration-200 hover:text-pink-600">
+              <span className="cursor-pointer font-bold text-3xl text-white transition duration-200 hover:text-orange-400">
                 Wang
               </span>
             </Link>
@@ -27,7 +27,7 @@ const Header = () => {
                   href={`/category/${category.slug}`}
                   passHref
                 >
-                  <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer transition duration-200 hover:text-pink-600">
+                  <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer transition duration-200 hover:text-orange-400">
                     {category.name}
                   </span>
                 </Link>

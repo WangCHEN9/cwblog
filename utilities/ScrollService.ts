@@ -5,7 +5,6 @@ import { object } from 'prop-types';
 export default class ScrollService {
   static scrollHandler = new ScrollService();
   static currentScreenBoardCaster = new Subject();
-
   static currentScreenFadeIn = new Subject();
 
   constructor() {

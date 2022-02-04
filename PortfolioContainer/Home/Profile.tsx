@@ -3,10 +3,11 @@ import SocialMedia from './SocialMedia';
 //@ts-ignore
 import Typical from 'react-typical';
 import Image from 'next/image';
+import { ScrollButton } from '../../components';
 
 function Intro() {
   return (
-    <div className="flex flex-col mt-6">
+    <div className="flex flex-col mt-1">
       <SocialMedia />
       <h3>
         <p className="flex text-2xl text-white font-semibold justify-center mb-6 font-sans">
@@ -31,17 +32,15 @@ function Intro() {
         background
       </p>
       <div className="mt-4  flex justify-center gap-10">
+        <ScrollButton />
         <button
           type="button"
-          className="inline-block items-center transition duration-300 ease border-2 border-white hover:border-orange-400 hover:text-orange-400 text-base font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+          className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
         >
-          Hire Me
-        </button>
-        <button
-          type="button"
-          className="inline-block items-center transition duration-500 ease hover:invert bg-orange-400 text-base font-medium rounded-full text-white px-8 py-3 cursor-pointer"
-        >
-          Get Resume
+          {' '}
+          <a href="/Wang_CHEN-CV-2022-01.pdf" download>
+            Get Resume
+          </a>
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Header } from './';
+import { Header, Headercw } from './';
 import React, { ReactChildren, ReactChild } from 'react';
 interface LayoutProps {
   children: ReactChild | ReactChildren;
@@ -6,7 +6,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => (
   <>
-    {/* <Header /> */}
+    <Headercw />
     {children}
   </>
 );

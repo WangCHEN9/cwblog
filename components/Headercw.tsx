@@ -7,17 +7,26 @@ import Link from 'next/link';
 
 const Headercw = () => {
   return (
-    <div className="bg-[#24263b] pt-5">
-      <div className="flex justify-center h-20 align-middle text-white">
-        <div className="flex items-center justify-between h-full w-9/12 text-white">
-          <div className="md:float-left block">
-            <Link href="/" passHref>
-              <span className="cursor-pointer font-bold text-5xl text-white transition duration-200 hover:text-pink-600">
-                WANG
-              </span>
-            </Link>
-          </div>
-          <div className="flex items-center font-semibold cursor-pointer text-xl text-white"></div>
+    <div className="container mx-auto px-10 mb-3">
+      <div className="border-b w-full inline-block board-blue-400 py-8">
+        <div className="md:float-left block">
+          <Link href="/" passHref>
+            <span className="cursor-pointer font-bold tracking-wide text-3xl text-white transition duration-200 hover:text-orange-400">
+              Wang
+            </span>
+          </Link>
+        </div>
+        <div className="float-left contents gap-10">
+          <Link key="blog" href={`/blog`} passHref>
+            <span className="md:float-right text-2xl mt-2 align-middle text-white ml-4 font-semibold tracking-wide cursor-pointer transition duration-200 hover:text-orange-400">
+              Blog
+            </span>
+          </Link>
+          <Link key="home" href={`/`} passHref>
+            <span className="md:float-right text-2xl mt-2 align-middle text-white ml-4 font-semibold tracking-wide cursor-pointer transition duration-200 hover:text-orange-400">
+              Home
+            </span>
+          </Link>
         </div>
       </div>
     </div>

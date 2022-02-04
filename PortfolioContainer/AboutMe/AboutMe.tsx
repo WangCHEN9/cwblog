@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ScreenHeading } from '../../components';
+import { ScreenHeading, ScrollButton } from '../../components';
 // import ScrollService from '../../utilities/ScrollService';
 import Animations from '../../utilities/Animations';
 import { subscribeOn } from 'rxjs';
@@ -50,8 +50,11 @@ const AboutMe: FC<Props> = (props) => {
     ));
   };
   return (
-    <div className="pb-20 bg-[#f8f7f1]">
-      <div className="flex justify-center items-center " id={props.id || ''}>
+    <div className="pb-10  bg-[#f8f7f1]">
+      <div
+        className="flex justify-center items-center mb-10"
+        id={props.id || ''}
+      >
         <div className="max-w-screen-lg w-8/12">
           <ScreenHeading title={'About Me'} subHeading={'Why Choose Me'} />
           <div className="flex w-full shadow-2xl shadow-[#1f2235]">
@@ -67,17 +70,20 @@ const AboutMe: FC<Props> = (props) => {
                 <div className="">{renderHighlight()}</div>
               </div>
               <div className="mt-4  flex justify-center gap-10">
-                <button
+                {/* <button
                   type="button"
                   className="inline-block items-center transition duration-300 ease border-2 border-sky-600 hover:border-orange-400 hover:text-orange-400 text-base font-medium rounded-full text-sky-600 px-8 py-3 cursor-pointer"
                 >
                   Hire Me
-                </button>
+                </button> */}
+                <ScrollButton />
                 <button
                   type="button"
-                  className="inline-block items-center transition duration-500 ease hover:invert bg-orange-400 text-base font-medium rounded-full text-white px-8 py-3 cursor-pointer"
+                  className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
                 >
-                  Get Resume
+                  <a href="/Wang_CHEN-CV-2022-01.pdf" download>
+                    Get Resume
+                  </a>
                 </button>
               </div>
             </div>

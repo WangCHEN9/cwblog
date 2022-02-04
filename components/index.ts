@@ -14,3 +14,4 @@ export { default as FeaturedPostCard } from './FeaturedPostCard';
 export { default as AdjacentPostCard } from './AdjacentPostCard';
 export { default as Loader } from './Loader';
 export { default as ScreenHeading } from './ScreenHeading';
+export { default as ScrollButton } from './ScrollButton';
