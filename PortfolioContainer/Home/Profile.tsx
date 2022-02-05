@@ -49,12 +49,12 @@ function Intro() {
 
 function Profile() {
   return (
-    <div className="grid grid-cols-3 grid-rows-1 pb-6 ">
-      <div className="col-span-3 md:col-span-2 pt-10 pb-4">
-        <Intro />
-      </div>
-      <div className="box-content rounded-full border-b-2 p-4 drop-shadow-lg w-3/5 invisible md:visible mb-2 mt-8">
-        <div className="">
+    <div className="flex justify-center">
+      <div className="grid grid-cols-3 grid-rows-1 pb-6">
+        <div className="col-span-3 md:col-span-2 pt-10 pb-4">
+          <Intro />
+        </div>
+        <div className="rounded-full border-b-2 p-4 drop-shadow-lg invisible md:visible ml-8 mb-2 mt-8">
           <Image
             alt={'Hero Image'}
             className="drop-shadow-lg  rounded-full shadow-sm shadow-white object-cover relative"
