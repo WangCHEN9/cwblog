@@ -28,8 +28,8 @@ function Intro() {
         className="text-5xl font-light text-white flex justify-center py-4 px-4 font-mono "
       />
       <p className="text-lg text-white flex justify-center py-4 mx-4">
-        Freelance developer {'&'} Data scientist with mechanical engineering
-        background
+        Data scientist {'&'} Full stack web developer with mechanical
+        engineering background
       </p>
       <div className="mt-4  flex justify-center gap-10">
         <ScrollButton />
@@ -38,7 +38,7 @@ function Intro() {
           className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
         >
           {' '}
-          <a href="/Wang_CHEN-CV-2022-01.pdf" download>
+          <a href="/Wang_CHEN-CV-2022-02.pdf" download>
             Get Resume
           </a>
         </button>
