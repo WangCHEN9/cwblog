@@ -6,7 +6,7 @@ export default function home() {
     <div className="">
       {/* <div className="container mx-auto px-10 mb-8"> */}
       <Head>
-        <title>CHEN Wang</title>
+        <title>Wang CHEN</title>
         <link rel="icon" href="/coding.png" />
       </Head>
       <PortfolioContainer />
