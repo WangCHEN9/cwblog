@@ -65,7 +65,7 @@ const ContactMe = (props: any) => {
             </div>
             <div className="flex">
               <div className="w-6/12 justify-start mx-8">
-                <div className="w-2/12 justify-start mb-10">
+                <div className="w-6/12 md:w-2/12 justify-start mb-10">
                   <SocialMedia />
                 </div>
                 <div className="max-w-4xl mb-8">
