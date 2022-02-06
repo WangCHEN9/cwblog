@@ -25,7 +25,7 @@ const PostDetail: FC<Props> = ({ post }) => {
   }
 
   return (
-    <div className="contrainer mx-auto px-10 mb-8">
+    <div className="contrainer mx-8 md:mx-20 lg:mx-40 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
           <PostDetails post={post} />
