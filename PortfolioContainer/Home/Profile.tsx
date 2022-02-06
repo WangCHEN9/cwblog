@@ -28,8 +28,8 @@ function Intro() {
         className="text-5xl font-light text-white flex justify-center py-4 px-4 font-mono "
       />
       <p className="text-lg text-white flex justify-center py-4 mx-4">
-        Data scientist {'&'} Full stack web developer with mechanical
-        engineering background
+        Data scientist {'&'} Full stack developer with mechanical engineering
+        background
       </p>
       <div className="mt-4  flex justify-center gap-10">
         <ScrollButton />
@@ -49,18 +49,20 @@ function Intro() {
 
 function Profile() {
   return (
-    <div className="flex justify-center">
-      <div className="grid grid-cols-3 grid-rows-1 pb-6">
-        <div className="col-span-3 md:col-span-2 pt-10 pb-4">
-          <Intro />
-        </div>
-        <div className="rounded-full border-b-2 p-4 drop-shadow-lg invisible md:visible ml-8 mb-2 mt-8">
-          <Image
-            alt={'Hero Image'}
-            className="drop-shadow-lg  rounded-full shadow-sm shadow-white object-cover relative"
-            src="/wangchen.jpg"
-            layout="fill"
-          />
+    <div>
+      <div className="flex justify-center">
+        <div className="grid grid-cols-3 grid-rows-1 pb-6">
+          <div className="col-span-3 md:col-span-2 pt-10 pb-4">
+            <Intro />
+          </div>
+          <div className="rounded-full border-b-2 p-4 drop-shadow-lg invisible md:visible ml-8 mb-2 mt-8">
+            <Image
+              alt={'Hero Image'}
+              className="drop-shadow-lg  rounded-full shadow-sm shadow-white object-cover relative"
+              src="/wangchen.jpg"
+              layout="fill"
+            />
+          </div>
         </div>
       </div>
     </div>

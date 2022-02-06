@@ -16,7 +16,7 @@ const Headercw = () => {
             </span>
           </Link>
         </div>
-        <div className="float-left contents gap-10">
+        <div className="hidden float-left md:contents gap-10">
           <Link key="blog" href={`/blog`} passHref>
             <span className="md:float-right text-2xl mt-2 align-middle text-white ml-4 font-semibold tracking-wide cursor-pointer transition duration-200 hover:text-orange-400">
               Blog

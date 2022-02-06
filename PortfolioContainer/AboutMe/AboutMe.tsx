@@ -18,8 +18,8 @@ const AboutMe: FC<Props> = (props) => {
 
   const SCREEN_CONSTSANTS = {
     description: [
-      'Hi! I’m Wang CHEN , Data Scientist , Innovation engineer and also a full stack web developer. I specialise in connected services and manufacturing process optimization. I have multi country working experience, and speak 3 languages.',
-      'I am an international mindset team player with optimistic、independent、outgoing character, always go for perfection and willing to learn.I understand industry trends and excited with new technology revolutions, motivated to embrace the change.',
+      'Hi! I’m Wang CHEN , Data Scientist , Innovation engineer and also a full stack developer. I specialise in connected services and manufacturing process optimization in automotive industry. I have multi country working experience, and speak 3 languages.',
+      'I am an international mindset team player with optimistic、independent、outgoing character, always go for perfection and willing to learn. I understand industry trends and excited with new technology revolutions, motivated to embrace the change.',
       'I hope my experience in both engineering and data science could bridge the gap and create new value spaces.',
     ],
     highlights: {
@@ -59,8 +59,8 @@ const AboutMe: FC<Props> = (props) => {
           <div className="max-w-screen-lg w-8/12">
             <ScreenHeading title={'About Me'} subHeading={'Why Choose Me'} />
             <div className="flex w-full shadow-2xl shadow-[#1f2235]">
-              <div className="w-6/12 bg-aboutme bg-cover bg-center"></div>
-              <div className="w-6/12 text-justify p-7">
+              <div className="md:w-6/12 md:bg-aboutme bg-cover bg-center "></div>
+              <div className="w-full md:w-6/12 text-justify p-7">
                 <span className="text-sm">{renderDescription()}</span>
                 <div className="mt-5">
                   <div>
