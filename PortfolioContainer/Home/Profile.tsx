@@ -21,7 +21,7 @@ function Intro() {
           1500,
           'Innovation Engineer 🛠️',
           1500,
-          'Full Stake Developer 💻',
+          'Full Stack Developer 💻',
           1500,
         ]}
         loop={Infinity}
@@ -38,8 +38,9 @@ function Intro() {
           className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
         >
           {' '}
-          <a href="/Wang_CHEN-CV-2022-02.pdf" download>
-            Get Resume
+          {/* <a href="/Wang_CHEN-CV-2022-02.pdf" download> */}
+          <a>
+            Get Resume [disabled]
           </a>
         </button>
       </div>

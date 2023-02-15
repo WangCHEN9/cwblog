@@ -25,11 +25,11 @@ const AboutMe: FC<Props> = (props) => {
     highlights: {
       bullets: [
         '3 years as Data Scientist',
+        '1 years as Data Engineer', 
         '6 years as Innovation engineer',
         '3 languages : Chinese, English, French',
         '2 Cats with me',
         'Full stack web developer',
-        'Blockchain technology lover',
       ],
       heading: 'Here are a few hightlights:',
     },
@@ -82,8 +82,9 @@ const AboutMe: FC<Props> = (props) => {
                     type="button"
                     className="inline-block items-center transition duration-500 ease hover:scale-110 bg-orange-400 text-base font-medium rounded-full text-white px-5 py-3 cursor-pointer"
                   >
-                    <a href="/Wang_CHEN-CV-2022-02.pdf" download>
-                      Get Resume
+                    {/* <a href="/Wang_CHEN-CV-2022-02.pdf" download> */}
+                    <a>
+                      Get Resume [disabled]
                     </a>
                   </button>
                 </div>
